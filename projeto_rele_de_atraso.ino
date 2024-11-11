@@ -14,8 +14,8 @@ LiquidCrystal_I2C lcd_1(0x27, 16, 2);  // Objeto LCD// Funções relacionadas ao
 #define SENSOR_PROXIMIDADE 10
 #define POTENCIOMETRO A0
 
-int tempoAtraso = 0;  // Armazena o tempo
-int valorSensorAproximidade = 0;
+unsigned int tempoAtraso = 0;  // Armazena o tempo
+unsigned int valorSensorAproximidade = 0;
 
 bool estadoBotaoIniciar = false;
 bool estadoBotaoMedir = false;
