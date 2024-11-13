@@ -1,6 +1,6 @@
 #include <LiquidCrystal_I2C.h>
 
-LiquidCrystal_I2C lcd_1(0x27, 16, 2);  // Objeto LCD// Funções relacionadas ao LED
+LiquidCrystal_I2C lcd_1(0x27, 16, 2);  // Objeto LCD
 
 // Define os pinos dos componetes
 #define CHAVE_SEGURANCA 2
@@ -34,11 +34,11 @@ bool sensorActive = false;  // Flag para verificar se o sensor está ativo
 float duracao;              //variável para guardar a duração do pulso
 
 int contador = 0;
-bool auxiliarChaveSeguranca = true;  // Variável para auliar no ativação da Chave de Segurança
-bool auxiliarChaveMedir = true;      // Variável para auliar no ativação da Chave de Medir o pulso
+bool auxiliarChaveSeguranca = true;  // Variável para auxiliar na ativação da Chave de Segurança
+bool auxiliarChaveMedir = true;      // Variável para auxiliar na ativação da Chave de Medir o pulso
 
 void setup() {
-
+Serial.begin(9600);
   // Define os botões como INPUT_PULLUP
   pinMode(BOTAO_INICIAR, INPUT_PULLUP);
   pinMode(BOTAO_RESET, INPUT_PULLUP);
