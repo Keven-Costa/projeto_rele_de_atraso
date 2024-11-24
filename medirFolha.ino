@@ -16,7 +16,7 @@ int medirFolha() {
 int medirFolha2() {
 
   // Verfica se o Sensor de Proximidade esta ativado
-  if (valorSensorAproximidade == HIGH && !sensorActive) {
+  if (valorSensorFotoeletrico == HIGH && !sensorActive) {
     // Inicia o temporizador quando o sensor é ativado (detecta um objeto)
     startTime = millis();
     sensorActive = true;
@@ -24,17 +24,14 @@ int medirFolha2() {
   }
 
   // Verfica se o Sensor de Proximidade esta desativado
-  if (valorSensorAproximidade == LOW && sensorActive) {
+  if (valorSensorFotoeletrico == LOW && sensorActive) {
 
     // Para o temporizador quando o sensor é desativado
     endTime = millis();
     float duracao = endTime - startTime;  // Calcula o tempo de ativação
     duracaoMilisegundos = duracao;        // Converte para milisegundos
 
-    // Exibe o tempo no Serial Monitor
-    Serial.print("Duração do pulso: ");
-    Serial.print(duracaoMilisegundos, 2);  // Exibe até 6 casas decimais
-    Serial.println(" ms");
+    adicionaContador(auxiliarContador);
 
     sensorActive = false;  // Reseta a flag para aguardar o próximo pulso
   }
@@ -42,3 +39,5 @@ int medirFolha2() {
 
   delay(100);  // Pequeno atraso para evitar leitura excessiva
 }
+
+
